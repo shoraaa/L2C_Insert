@@ -47,12 +47,12 @@ if not Use_RRC:
 mode = 'test'
 test_paras = {
     # problem_size: [filename, episode, batch]
-    # 100: ['vrp100_test_lkh.txt', 10000, 5000, 0],
-    100: ['test_vrp100_n10000_C50_uniform_hgs.txt', 10000, 5000, 0],
-    1000: ['test_vrp1000_n16_C200_uniform_hgs.txt', 100, 100, 0],
-    10000: ['test_vrp10000_n16_C300_uniform_hgs.txt', 16, 16, 0],
-    50000: ['test_vrp50000_n16_C300_uniform_hgs.txt', 16, 16, 0],
-    100000: ['test_vrp100000_n16_C300_uniform_hgs.txt', 16, 16, 0],
+    100: ['test_cvrp100_hgs_n10000_C50.txt', 10, 10, 0],
+    1000: ['test_cvrp1000_hgs_n128_C250.txt', 128, 128, 0],
+    5000: ['test_cvrp5000_hgs_n16_C500.txt', 16, 16, 0],
+    10000: ['test_cvrp10000_hgs_n16_C1000.txt', 16, 16, 0],
+    50000: ['test_cvrp50000_hgs_n16_C2000.txt', 16, 16, 0],
+    100000: ['test_cvrp100000_hgs_n16_C2000.txt', 16, 16, 0],
 }
 
 ##########################################################################################
@@ -125,7 +125,7 @@ def main_test(path, args, file_name, use_RRC=None):
     model_params['knearest'] = args.knearest
     model_params['coor_norm'] = args.coor_norm
     env_params['data_path'] = b + f"/data/CVRP/{test_paras[args.problem_size][0]}"
-    env_params['vrplib_path'] = b + f"/data/CVRP/{test_paras[args.problem_size][0]}"
+    #env_params['vrplib_path'] = b + f"/data/CVRP/{test_paras[args.problem_size][0]}"
     env_params['test_in_vrplib'] = args.test_in_vrplib
     env_params['RRC_budget'] = args.RRC_budget
     env_params['random_insertion'] = args.random_insertion
