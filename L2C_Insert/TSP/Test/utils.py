@@ -340,5 +340,10 @@ def copy_all_src(dst_root):
 
                     dst_filepath = filepath.format(post_index)
 
-                shutil.copy(src_abspath, dst_filepath)
+                try:
+                    if os.path.basename(src_abspath) == "_ops.py":
+                        continue  # Skip this specific phantom file
+                    shutil.copy(src_abspath, dst_filepath)
+                except FileNotFoundError:
+                        print(f"Warning: Could not copy {src_abspath}, skipping...")
 
